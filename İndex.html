@@ -1,1 +1,125 @@
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İyi ki Doğdun Azra ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:radial-gradient(circle at top,#54213d,#160a17 70%);
+ color:#fff1f5;font-family:Georgia,serif;text-align:center;
+ min-height:100vh;overflow-x:hidden
+}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.heart{position:absolute;bottom:-30px;color:#ff80ae;animation:up linear forwards}
+@keyframes up{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+main{position:relative;max-width:650px;margin:auto;padding:45px 20px}
+h1{font-size:clamp(34px,8vw,52px);color:#ffb5cf;font-weight:normal}
+h2{color:#ffb5cf;font-weight:normal}
+p{line-height:1.8;font-size:17px}
+button{
+ border:0;border-radius:30px;padding:15px 27px;
+ background:linear-gradient(100deg,#ff9cbd,#ff477e);
+ color:#351021;font-weight:bold;font-size:16px;margin:15px;cursor:pointer
+}
+.hidden{display:none}
+section{animation:show 1s ease}
+@keyframes show{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0}
+.gallery img{
+ width:100%;aspect-ratio:3/4;object-fit:cover;
+ border-radius:15px;border:2px solid #ff9cbd;
+ box-shadow:0 5px 25px #ff477e33
+}
+.photo-text{font-size:14px;color:#ffd4e2}
+.letter{
+ background:#fff0f5;color:#612b43;padding:25px;
+ border-radius:20px;text-align:left;line-height:1.9;
+ white-space:pre-line;font-size:17px
+}
+.line{height:1px;background:#ff9cbd55;margin:35px 0}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<main>
+
+<section id="welcome">
+ <div style="font-size:45px">♥</div>
+ <p>Bugün sıradan bir gün değil...</p>
+ <h1>İyi ki Doğdun Azra</h1>
+ <p>Çünkü bugün benim en güzel tesadüfümün doğum günü. ❤️</p>
+ <button onclick="next('gallery')">Sana bir sürprizim var 💌</button>
+</section>
+
+<section id="gallery" class="hidden">
+ <p>HER FOTOĞRAFTA BİR ANIMIZ...</p>
+ <h1>Bizim Hikâyemiz ❤️</h1>
+ <div class="gallery">
+  <div><img src="foto1.jpg" alt="Birlikte anımız 1"><p class="photo-text">En güzel anılarımdan biri...</p></div>
+  <div><img src="foto2.jpg" alt="Birlikte anımız 2"><p class="photo-text">Gülüşün hep aklımda...</p></div>
+  <div><img src="foto3.jpg" alt="Birlikte anımız 3"><p class="photo-text">İyi ki bu anı yaşamışız...</p></div>
+  <div><img src="foto4.jpg" alt="Birlikte anımız 4"><p class="photo-text">Daha nice anılarımıza...</p></div>
+ </div>
+ <button onclick="next('letter')">Şimdi sana söyleyeceklerim var ❤️</button>
+</section>
+
+<section id="letter" class="hidden">
+ <div style="font-size:45px">💗</div>
+ <p>SADECE SANA...</p>
+ <h1>Canımın İçi, Yavrum...</h1>
+ <div class="line"></div>
+ <div class="letter">Canımın içi Azra,
+
+Bugün senin doğum günün ama aslında ben de bugün senin gibi güzel bir insanın bu dünyaya gelmiş olmasına seviniyorum.
+
+Hayatıma girdiğin günden beri birçok şey değişti. Bazen bir gülüşün, bazen küçücük bir mesajın bütün günümü güzelleştirmeye yetiyor.
+
+Seninle geçirdiğim her anın benim için ayrı bir anlamı var. Birlikte güldüğümüz, konuştuğumuz, bazen saçmaladığımız her anı saklamak istiyorum.
+
+Yeni yaşında yüzünden gülümsemenin, kalbinden huzurun hiç eksik olmamasını diliyorum. Hayallerinin gerçekleştiği, kendini çok değerli ve çok mutlu hissettiğin bir yaş olsun.
+
+Ben de bu yeni yaşında yanında olmayı, elini tutmayı, seninle daha nice güzel anılar biriktirmeyi istiyorum.
+
+İyi ki doğdun Azra.
+İyi ki varsın.
+İyi ki benim hayatımdasın.
+
+Seni çok seviyorum Yavrum. ❤️
+
+Sonsuz sevgimle...`;
+
+ <div class="line"></div>
+ <h2>İyi ki doğdun, güzelim. ❤️</h2>
+ <p>Bu hikâyenin daha yazılacak çok güzel sayfaları var...</p>
+ <div style="font-size:45px">♥</div>
+</section>
+
+</main>
+
+<script>
+function next(id){
+ document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+ const target=document.getElementById(id);
+ target.classList.remove('hidden');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+const box=document.getElementById('hearts');
+function heart(){
+ const h=document.createElement('span');
+ h.className='heart';
+ h.textContent=Math.random()>.3?'♥':'♡';
+ h.style.left=Math.random()*100+'%';
+ h.style.fontSize=(15+Math.random()*20)+'px';
+ const duration=6+Math.random()*6;
+ h.style.animationDuration=duration+'s';
+ box.appendChild(h);
+ setTimeout(()=>h.remove(),duration*1000);
+}
+setInterval(heart,650);
+</script>
+</body>
+</html>
+
